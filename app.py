@@ -6,7 +6,7 @@ import datetime
 app = Flask(__name__)
 global studentOrganisationDetails
 # Assign default 5 values to studentOrganisationDetails for Application  3.
-
+studentOrganisationDetails = 'a', 'b', 'c', 'd', 'e'
 
 @app.get('/')
 def index():
@@ -18,13 +18,14 @@ def index():
 @app.get('/calculate')
 def displayNumberPage():
     # Complete this function to display form.html page
-    return render_template('result.html')
+    return render_template('form.html')
 
 
 @app.route('/calculate', methods=['POST'])
 def checkNumber():
     # Get Number from form and display message according to number
     # Display "Number {Number} is even" if given number is even on result.html page
+    
     # Display "Number {Number} is odd" if given number is odd on result.html page
     # Display "No number provided" if value is null or blank on result.html page
     # Display "Provided input is not an integer!" if value is not a number on result.html page
@@ -32,7 +33,11 @@ def checkNumber():
     number = request.form['number']
 
     # Write your to code here to check whether number is even or odd and render result.html page
-
+    if number % 2 == 0:
+        oddEven = number + "is even"
+    else :
+        oddEven = number + "is odd"
+    return render_template('result.html', oddEven)
 
 @app.get('/addStudentOrganisation')
 def displayStudentForm():
