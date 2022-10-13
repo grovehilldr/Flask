@@ -31,18 +31,20 @@ def checkNumber():
     # Display "Provided input is not an integer!" if value is not a number on result.html page
     global number
     number = request.form['number']
-
+   
     # Write your to code here to check whether number is even or odd and render result.html page
+
     if number % 2 == 0:
-        oddEven = number + "is even"
+        
+        return render_template('result.html', number=number, oddEven = "is even")
     else :
-        oddEven = number + "is odd"
-    return render_template('result.html', oddEven)
+        
+        return render_template('result.html', number=number, oddEven = "is odd")
 
 @app.get('/addStudentOrganisation')
 def displayStudentForm():
     # Complete this function to display studentFrom.html page
-    pass
+    return render_template('studentForm.html')
 
 
 @app.route('/addStudentOrganisation', methods=['POST'])
