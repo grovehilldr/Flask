@@ -21,7 +21,7 @@ def displayNumberPage():
     return render_template('form.html')
 
 
-@app.route('/calculate', methods=['POST'])
+@app.route('/result', methods=['POST'])
 def checkNumber():
     # Get Number from form and display message according to number
     # Display "Number {Number} is even" if given number is even on result.html page
@@ -33,13 +33,13 @@ def checkNumber():
     number = request.form['number']
    
     # Write your to code here to check whether number is even or odd and render result.html page
-
-    if number % 2 == 0:
-        
-        return render_template('result.html', number=number, oddEven = "is even")
+    global oddEven
+    if int(request.form['number']) % 2 == 0:
+        oddEven = "is even"
+        return render_template('result.html', number=number, oddEven = oddEven)
     else :
-        
-        return render_template('result.html', number=number, oddEven = "is odd")
+        oddEven = "is odd"
+        return render_template('result.html', number=number, oddEven = oddEven)
 
 @app.get('/addStudentOrganisation')
 def displayStudentForm():
