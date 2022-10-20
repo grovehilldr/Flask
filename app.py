@@ -55,7 +55,7 @@ def displayRegistrationPage():
     global studentName
     global select
     if request.form.method == 'POST':
-        studentName = request.form['name']
+        studentName = request.form['studentName']
     elif request.form.method == 'GET':
         select = request.args.get("select")
         
