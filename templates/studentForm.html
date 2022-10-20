@@ -3,4 +3,28 @@
 <h4>Enter Student Information below</h4>
 <!--Form to request user's name-->
 
+    <form action="/studentdetails" method="POST" method = "GET">
+
+
+        <input type="text" name="name" id="name">
+      
+
+
+        <select name="studentOrganisationDetails" method="GET" action="/studentdetails">
+            {% for studentOrganisationDetail in studentOrganisationDetails %}
+                <option value="{{studentOrganisationDetail}}" SELECTED>{{studentOrganisationDetail}}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Submit">
+
+
+    </form>
+
+
+
+
+
+
 {% endblock %}
+ 

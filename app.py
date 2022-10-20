@@ -4,9 +4,10 @@ from flask import Flask, render_template, request
 import datetime
 
 app = Flask(__name__)
+# Append this value to studentOrganisationDetails
 global studentOrganisationDetails
 # Assign default 5 values to studentOrganisationDetails for Application  3.
-studentOrganisationDetails = 'a', 'b', 'c', 'd', 'e'
+studentOrganisationDetails = ['aa', 'bb', 'cc']
 
 @app.get('/')
 def index():
@@ -44,14 +45,25 @@ def checkNumber():
 @app.get('/addStudentOrganisation')
 def displayStudentForm():
     # Complete this function to display studentFrom.html page
+
     return render_template('studentForm.html')
 
 
-@app.route('/addStudentOrganisation', methods=['POST'])
+@app.route('/studentdetails', methods=['POST', 'GET'])
 def displayRegistrationPage():
     # Get student name and organisation from form.
-    studentName = request.form['name']
+    global studentName
+    global select
+    if request.form.method == 'POST':
+        studentName = request.form['name']
+    elif request.form.method == 'GET':
+        select = request.args.get("select")
+        
+    
+   
 
     # Append this value to studentOrganisationDetails
+ 
 
     # Display studentDetails.html with all students and organisations
+    return render_template('StudentDetails.html', studentName = studentName, select=select,studentOrganisationDetails=studentOrganisationDetails)
