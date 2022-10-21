@@ -53,15 +53,15 @@ def displayStudentForm():
 def displayRegistrationPage():
     # Get student name and organisation from form.
  
-    studentName = request.form['name']
+    studentName = request.form['sname']
 
-    select = request.form['select']
+    studentOrganisation = request.form['organisaton']
         
     
    
 
     # Append this value to studentOrganisationDetails
-    studentOrganisationDetails[studentName] = select
+    studentOrganisationDetails[studentName] = studentOrganisation
 
     # Display studentDetails.html with all students and organisations
     return render_template('StudentDetails.html', studentOrganisationDetails=studentOrganisationDetails)
