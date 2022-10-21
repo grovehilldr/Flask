@@ -1,10 +1,12 @@
 {% extends 'layout.html' %}
 {% block content %}
 <h1>Student Details</h1>
+<h2>Name: Organisation </h2>
 <table>
     {%for key,value in studentOrganisationDetails.items()%}
-    
+        {{key}}:  {{value}},
     {%endfor%}
+    
 </table>
 
 {% endblock %}

@@ -6,6 +6,7 @@ import datetime
 app = Flask(__name__)
 # Append this value to studentOrganisationDetails
 global studentOrganisationDetails 
+studentOrganisationDetails = {'john': 'cool people', "ashley": 'nice people'}
 # Assign default 5 values to studentOrganisationDetails for Application  3.
 
 
@@ -56,9 +57,11 @@ def displayRegistrationPage():
     studentName = request.form['sname']
 
     studentOrganisation = request.form['organisation']
-        
     
+
    
+   
+    
 
     # Append this value to studentOrganisationDetails
     studentOrganisationDetails[studentName] = studentOrganisation
