@@ -5,9 +5,9 @@ import datetime
 
 app = Flask(__name__)
 # Append this value to studentOrganisationDetails
-global studentOrganisationDetails
+global studentOrganisationDetails 
 # Assign default 5 values to studentOrganisationDetails for Application  3.
-studentOrganisationDetails = ['aa', 'bb', 'cc']
+
 
 @app.get('/')
 def index():
@@ -55,7 +55,7 @@ def displayRegistrationPage():
  
     studentName = request.form['sname']
 
-    studentOrganisation = request.form['organisaton']
+    studentOrganisation = request.form['organisation']
         
     
    
