@@ -4,20 +4,22 @@
 <h4>Enter Student Information below</h4>
 <!--Form to request user's name-->
 
-    <form action="/studentdetails" method="POST" method = "GET">
+    <form action="/studentdetails" method="POST" method = 'GET'>
+        <label for = "studentName">Enter name:</label> 
+        <input type = "text" name = "studentName" id = "studentName">
+        <label for = "select">Enter organisation: </label>
+        <select id="select">
+
+            <option value = "a club">a club</option>
+            <option value = "b club">b club</option>
+            <option value = "c club">c club</option>
+            <option value = "d club">d club</option>
+            <option value = "e club">e club</option>
 
 
-        <input type="text" name="studentName" id="studentName">
-      
-
-
-        <select name="studentOrganisationDetails" method="GET" action="/studentdetails">
-            {% for studentOrganisationDetail in studentOrganisationDetails %}
-                <option value="{{studentOrganisationDetail}}" SELECTED>{{studentOrganisationDetail}}</option>
-            {% endfor %}
         </select>
+        <input type = "submit" value = "Register">
 
-        <input type="submit" value="Submit">
 
 
     </form>

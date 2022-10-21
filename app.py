@@ -49,21 +49,19 @@ def displayStudentForm():
     return render_template('studentForm.html')
 
 
-@app.route('/studentdetails', methods=['POST', 'GET'])
+@app.route('/studentdetails', methods=['POST'])
 def displayRegistrationPage():
     # Get student name and organisation from form.
-    global studentName
-    global select
-    if request.form.method == 'POST':
-        studentName = request.form['studentName']
-    elif request.form.method == 'GET':
-        select = request.args.get("select")
+ 
+    studentName = request.form['name']
+
+    select = request.form['select']
         
     
    
 
     # Append this value to studentOrganisationDetails
- 
+    studentOrganisationDetails[studentName] = select
 
     # Display studentDetails.html with all students and organisations
-    return render_template('StudentDetails.html', studentName = studentName, select=select,studentOrganisationDetails=studentOrganisationDetails)
+    return render_template('StudentDetails.html', studentOrganisationDetails=studentOrganisationDetails)
